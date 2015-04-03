@@ -1,0 +1,15 @@
+.DS_Store
+*.rbc
+*.sassc
+*~
+.sass-cache
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/config/database.yml
+/config/secrets.yml
+/log/*
+!/log/.keep
+/tmp
+/public/system
+/tmp/*

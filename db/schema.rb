@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404122712) do
+ActiveRecord::Schema.define(version: 20150404152750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(version: 20150404122712) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "adwords_right",      default: 0
+    t.integer  "adwords_top",        default: 0
+    t.integer  "total_adwords",      default: 0
+    t.integer  "non_adwords_links",  default: 0
+    t.text     "adwords_right_urls", default: [],              array: true
+    t.text     "adwords_top_urls",   default: [],              array: true
+    t.text     "non_adwords_urls",   default: [],              array: true
+    t.integer  "total_links",        default: 0
+    t.integer  "total_results",      default: 0
+    t.text     "page_html"
+    t.integer  "keyword_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

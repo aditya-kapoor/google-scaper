@@ -2,7 +2,7 @@ class Keyword < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  has_many :results, dependent: :destroy
+  has_one :search_result, class_name: Result, dependent: :destroy
 
   def self.import(file_path)
     CSV.foreach(file_path) do |row|

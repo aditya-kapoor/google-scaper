@@ -13,10 +13,17 @@ ActiveAdmin.register Keyword do
     link_to('Upload CSV', upload_csv_admin_keywords_path)
   end
 
+  member_action :results do
+  end
+
   index do
     id_column
     column :name
-    actions
+    actions defaults: true do |keyword|
+      links = ''
+      links += link_to 'Search Results', results_admin_keyword_path(keyword)
+      links.html_safe
+    end
   end
 
   filter :name

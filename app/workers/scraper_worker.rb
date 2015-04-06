@@ -13,7 +13,7 @@ class ScraperWorker
 
     nokogiri_html = Nokogiri::HTML.parse(search_results.content)
 
-    keyword_search_result = keyword.build_search_result
+    keyword_search_result = keyword.results.build
     total_adwords_links_present_on_page = search_results.links
                                             .select  { |link| link.href.start_with?('/aclk') }
                                             .collect { |link| make_link(link.text, link.href) }
